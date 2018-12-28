@@ -36,7 +36,10 @@ class Article extends Model{
 	//查询单条
 	function findData($id)
 	{
-		return Db::table($this->table)->field('id,title,content')->where('id='.$id.'')->find();
+		 $where=array(
+		    "id"=>$id,
+		);
+		return Db::table($this->table)->field('id,title,content')->where($where)->find();
 	}
 	//修改
 	function updateData($data,$id)
